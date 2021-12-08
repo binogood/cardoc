@@ -8,13 +8,13 @@ from app.user.request.user_car import (
 from app.user.response.user_car import CreateUserCarResponse, GetUserCarResponse
 from app.user.service.user_car import UserCarService
 
-from cardoc.core.fastapi.schemas.response import ExceptionResponseSchema
+from core.fastapi.schemas.response import ExceptionResponseSchema
 
 user_car_router = APIRouter()
 
 
 @user_car_router.post(
-    "/create_user_car",
+    "/create-user-car",
     response_model=List[CreateUserCarResponse],
     responses={"400": {"model": ExceptionResponseSchema}},
     summary="Create User Car",
@@ -24,7 +24,7 @@ async def create_user_car(request: List[CreateUserCarDetailRequest]):
 
 
 @user_car_router.get(
-    "/get_user_car",
+    "/get-user-car",
     response_model=GetUserCarResponse,
     responses={"400": {"model": ExceptionResponseSchema}},
     summary="Get User Car",
