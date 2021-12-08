@@ -1,9 +1,7 @@
 from pydantic import BaseModel
+from enum import Enum
 
 
-class CreateTireTypeRequest(BaseModel):
-    name: str
-
-    class Config:
-        orm_mode = True
-        schema_extra = {"example": {"name": "front", }}
+class CreateTireTypeRequest(str, Enum):
+    front: str = "front"
+    rear: str = "rear"

@@ -1,4 +1,4 @@
-from cardoc.core.exceptions.base import CustomException
+from core.exceptions.base import CustomException
 
 
 class DecodeTokenException(CustomException):

@@ -1,7 +1,7 @@
 from functools import wraps
 
 from app.user.enums import BaseEnum
-from cardoc.core.db.session import session
+from core.db.session import session
 
 
 class Propagation(BaseEnum):

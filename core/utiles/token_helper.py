@@ -4,8 +4,8 @@ from typing import Union, NoReturn
 import jwt
 
 
-from cardoc.core.config import config
-from cardoc.core.exceptions.token import DecodeTokenException, ExpiredTokenException
+from core.config import config
+from core.exceptions.token import DecodeTokenException, ExpiredTokenException
 
 
 class TokenHelper:
