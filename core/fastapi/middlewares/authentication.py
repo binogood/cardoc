@@ -7,7 +7,7 @@ from starlette.middleware.authentication import (
 )
 from starlette.requests import HTTPConnection
 
-from cardoc.core.config import config
+from core.config import config
 from ..schemas.current_user import CurrentUser
 
 
