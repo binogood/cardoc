@@ -2,10 +2,10 @@ from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
-from cardoc.core.di import init_di
-from cardoc.core.exceptions.base import CustomException
-from cardoc.core.fastapi.middlewares.sqlalchemy import SQLAlchemyMiddleware
-from cardoc.core.fastapi.middlewares.authentication import (
+from core.di import init_di
+from core.exceptions.base import CustomException
+from core.fastapi.middlewares.sqlalchemy import SQLAlchemyMiddleware
+from core.fastapi.middlewares.authentication import (
     AuthenticationMiddleware,
     AuthBackend,
 )
@@ -58,11 +58,11 @@ def init_middleware(app: FastAPI) -> None:
     )
 
 
-DESCRIPTION = "데이터라이즈 과제"
+DESCRIPTION = "카닥 과제"
 
 
 def create_app() -> FastAPI:
-    app = FastAPI(title="datarize", description=DESCRIPTION,)
+    app = FastAPI(title="cardoc", description=DESCRIPTION,)
     init_routers(app=app)
     init_cors(app=app)
     init_listeners(app=app)
