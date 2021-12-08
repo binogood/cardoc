@@ -6,11 +6,11 @@ from typing import Optional, Union, NoReturn
 
 from pythondi import inject
 
-from cardoc.core.config import config
+from core.config import config
 from app.user.models.user import User
 from app.user.repository.user import UserRepo
-from cardoc.core.db.transaction import Transaction, Propagation
-from cardoc.core.exceptions.user import (
+from core.db.transaction import Transaction, Propagation
+from core.exceptions.user import (
     UserNotFoundException,
     DuplicateNameException,
 )

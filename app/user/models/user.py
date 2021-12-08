@@ -2,8 +2,8 @@ from typing import Union, NoReturn
 
 from sqlalchemy import Column, Integer, Unicode, DateTime, func
 
-from cardoc.core.db.session import Base
-from cardoc.core.db.timestamp_mixin import TimestampMixin
+from core.db.session import Base
+from core.db.timestamp_mixin import TimestampMixin
 import bcrypt
 
 

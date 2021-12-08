@@ -6,7 +6,7 @@ from app.user.models.user_car import UserCar
 from app.user.models.user import User
 from app.car.models.car import Car
 
-from cardoc.core.db.session import session
+from core.db.session import session
 
 
 class UserCarRepo:

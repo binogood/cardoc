@@ -2,7 +2,7 @@ from typing import Union, NoReturn
 
 from sqlalchemy import Column, Integer, ForeignKey
 
-from cardoc.core.db.session import Base
+from core.db.session import Base
 
 
 class UserCar(Base):

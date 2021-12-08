@@ -8,13 +8,13 @@ from app.user.repository.user import UserRepo
 from app.car.repository.car import CarRepo
 from app.car.repository.car_tire import CarTireRepo
 from app.user.repository.user_car import UserCarRepo
-from cardoc.core.db.transaction import Transaction, Propagation
-from cardoc.core.exceptions.user import (
+from core.db.transaction import Transaction, Propagation
+from core.exceptions.user import (
     UserNotFoundException,
     DuplicateUserCarException,
     ManyRequestsException,
 )
-from cardoc.core.exceptions.car import (
+from core.exceptions.car import (
     CarNotFoundException
 )
 
