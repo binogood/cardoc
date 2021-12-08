@@ -4,7 +4,7 @@ from app.user.request.user import CreateUserRequest, LoginUserRequest
 from app.user.response.user import CreateUserResponse, LoginUserResponse
 from app.user.service.user import UserService
 
-from cardoc.core.fastapi.schemas.response import ExceptionResponseSchema
+from core.fastapi.schemas.response import ExceptionResponseSchema
 
 user_router = APIRouter()
 

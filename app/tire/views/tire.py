@@ -4,13 +4,13 @@ from app.tire.request.tire import CreateTireRequest
 from app.tire.response.tire import CreateTireResponse
 from app.tire.service.tire import TireService
 
-from cardoc.core.fastapi.schemas.response import ExceptionResponseSchema
+from core.fastapi.schemas.response import ExceptionResponseSchema
 
 tire_router = APIRouter()
 
 
 @tire_router.post(
-    "/create_tire",
+    "/create-tire",
     response_model=CreateTireResponse,
     responses={"400": {"model": ExceptionResponseSchema}},
     summary="Create Tire"
