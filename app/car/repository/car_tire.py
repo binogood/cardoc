@@ -3,8 +3,8 @@ from typing import Optional
 
 from app.car.models.car_tire import CarTire
 from app.tire.models.tire import Tire
-from cardoc.core.db.session import session
-from cardoc.core.const import const
+from core.db.session import session
+from app.tire.enums.tiretype import TireTypeEnum
 
 
 class CarTireRepo:
@@ -34,7 +34,7 @@ class CarTireMySQLRepo(CarTireRepo):
         tire_dict = {}
         for tire in tire_list:
             tire_info = session.query(Tire.value, Tire.tire_type_id).filter(Tire.tire_id == tire.tire_id).first()
-            if tire_info.tire_type_id == const.FRONT:
+            if tire_info.tire_type_id == TireTypeEnum.front:
                 tire_dict['front'] = tire_info.value
             tire_dict['rear'] = tire_info.value
         return tire_dict
