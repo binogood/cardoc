@@ -1,10 +1,10 @@
-from cardoc.core.exceptions.base import CustomException
+from core.exceptions.base import CustomException
 
 
 class DuplicateTireException(CustomException):
     code = 400
     error_code = 20000
-    message = "duplicate front tire"
+    message = "duplicate tire"
 
 
 class TireNotFoundException(CustomException):
@@ -15,11 +15,11 @@ class TireNotFoundException(CustomException):
 
 class DuplicateTireTypeException(CustomException):
     code = 400
-    error_code = 20000
-    message = "duplicate rear tire"
+    error_code = 20002
+    message = "duplicate tire type"
 
 
 class TireTypeNotFoundException(CustomException):
     code = 404
-    error_code = 20001
+    error_code = 20003
     message = "tire type not found"

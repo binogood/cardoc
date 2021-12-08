@@ -2,7 +2,7 @@ from abc import ABCMeta, abstractmethod
 from typing import Optional
 
 from app.car.models.car import Car
-from cardoc.core.db.session import session
+from core.db.session import session
 
 
 class CarRepo:

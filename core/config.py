@@ -1,7 +1,7 @@
 import os
 
 from pydantic import BaseSettings
-from cardoc.my_settings import DB_URL
+from my_settings import DB_URL
 
 
 class Config(BaseSettings):

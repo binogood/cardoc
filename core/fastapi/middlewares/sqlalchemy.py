@@ -7,7 +7,7 @@ from starlette.middleware.base import (
     RequestResponseEndpoint,
 )
 
-from cardoc.core.db.session import session, set_session_context, reset_session_context
+from core.db.session import session, set_session_context, reset_session_context
 
 session_context = ContextVar("session_context")
 

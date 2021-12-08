@@ -2,7 +2,7 @@ from abc import ABCMeta, abstractmethod
 from typing import Optional
 
 from app.tire.models.tire_type import TireType
-from cardoc.core.db.session import session
+from core.db.session import session
 
 
 class TireTypeRepo:

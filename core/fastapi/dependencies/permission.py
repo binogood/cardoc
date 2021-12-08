@@ -6,7 +6,7 @@ from fastapi.openapi.models import APIKey, APIKeyIn
 from fastapi.security.base import SecurityBase
 
 from app.user.service.user import UserService
-from cardoc.core.exceptions.base import CustomException, UnauthorizedException
+from core.exceptions.base import CustomException, UnauthorizedException
 
 
 class PermissionDependency(SecurityBase):
@@ -45,4 +45,4 @@ class IsAdmin(BasePermission):
         if not user_id:
             return False
 
-        return await UserService().is_admin(user_id=user_id)
+        return await user_id

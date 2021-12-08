@@ -4,12 +4,12 @@ from app.tire.repository.tire import TireRepo
 from app.car.repository.car_tire import CarTireRepo
 from app.car.repository.car import CarRepo
 from app.car.models.car_tire import CarTire
-from cardoc.core.db.transaction import Transaction, Propagation
-from cardoc.core.utiles.token_helper import TokenHelper
-from cardoc.core.exceptions.car import (
+from core.db.transaction import Transaction, Propagation
+from core.utiles.token_helper import TokenHelper
+from core.exceptions.car import (
     CarNotFoundException,
 )
-from cardoc.core.exceptions.tire import (
+from core.exceptions.tire import (
     TireNotFoundException
 )
 

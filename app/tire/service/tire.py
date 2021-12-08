@@ -6,8 +6,8 @@ from pythondi import inject
 from app.tire.models.tire import Tire
 
 from app.tire.repository.tire import TireRepo
-from cardoc.core.db.transaction import Transaction, Propagation
-from cardoc.core.exceptions.tire import (
+from core.db.transaction import Transaction, Propagation
+from core.exceptions.tire import (
     DuplicateTireException,
 )
 
