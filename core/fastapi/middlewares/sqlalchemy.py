@@ -20,7 +20,7 @@ class SQLAlchemyMiddleware(BaseHTTPMiddleware):
         self, request: Request, call_next: RequestResponseEndpoint
     ):
         session_id = str(uuid4())
-        context = set_session_context(session_id = session_id)
+        context = set_session_context(session_id=session_id)
 
         try:
             response = await call_next(request)
