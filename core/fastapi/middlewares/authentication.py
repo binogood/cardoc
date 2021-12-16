@@ -21,20 +21,10 @@ class AuthBackend(AuthenticationBackend):
             return False, current_user
 
         try:
-            scheme, credentials = authorization.split(" ")
-            if scheme.lower() != "bearer":
-                return False, current_user
-        except ValueError:
-            return False, current_user
-
-        if not credentials:
-            return False, current_user
-
-        try:
             payload = jwt.decode(
-                credentials, config.JWT_SECRET_KEY, algorithms=[config.ALGORITHM]
+                authorization, config.JWT_SECRET_KEY, algorithms=[config.JWT_ALGORITHM],
             )
-            user_id = payload.get("user_id")
+            user_id = payload.get("user")
         except jwt.exceptions.PyJWTError:
             return False, current_user
 
