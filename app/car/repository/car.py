@@ -9,7 +9,7 @@ class CarRepo:
     __metaclass__ = ABCMeta
 
     @abstractmethod
-    async def get_by_car_trim(self, trimId: int) -> Optional[Car]:
+    async def get_by_car_trim(self, trim_id: int) -> Optional[Car]:
         pass
 
     @abstractmethod
@@ -22,8 +22,8 @@ class CarRepo:
 
 
 class CarMySQLRepo(CarRepo):
-    async def get_by_car_trim(self, trimId: int) -> Optional[Car]:
-        return session.query(Car).filter(Car.trimId == trimId).first()
+    async def get_by_car_trim(self, trim_id: int) -> Optional[Car]:
+        return session.query(Car).filter(Car.trim_id == trim_id).first()
 
     async def get_by_car_id(self, car_id: int) -> Optional[Car]:
         return session.query(Car).filter(Car.car_id == car_id).first()

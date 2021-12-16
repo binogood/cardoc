@@ -2,13 +2,13 @@ from pydantic import BaseModel
 
 
 class CreateCarRequest(BaseModel):
-    trimId: int
+    trim_id: int
 
     class Config:
         orm_mode = True
         schema_extra = {
             "example": {
-                "trimId": 5000,
+                "trim_id": 5000,
             }
         }
 
