@@ -13,7 +13,7 @@ class UserRepo:
         pass
 
     @abstractmethod
-    async def get_by_user(self, name: str) -> Optional[User]:
+    async def get_by_name(self, name: str) -> Optional[User]:
         pass
 
     @abstractmethod
@@ -23,12 +23,11 @@ class UserRepo:
 
 class UserMySQLRepo(UserRepo):
     async def get_by_id(self, user_id: int) -> Optional[User]:
-        pass
+        return session.query(User).filter(User.user_id == user_id).first()
 
-    async def get_by_user(self, name: str) -> Optional[User]:
+    async def get_by_name(self, name: str) -> Optional[User]:
         return session.query(User).filter(User.name == name).first()
 
     async def save(self, user: User) -> User:
         session.add(user)
         return user
-
