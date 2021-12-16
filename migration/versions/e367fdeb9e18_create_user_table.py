@@ -21,6 +21,7 @@ def upgrade():
         sa.Column('user_id', sa.Integer(), autoincrement=True, nullable=False),
         sa.Column('name', sa.String(length=30), nullable=False),
         sa.Column('password', sa.String(length=200), nullable=False),
+        sa.Column('is_admin', sa.Boolean(), default=False, nullable=False),
         sa.Column('created_at', sa.DateTime(), nullable=False),
         sa.Column('updated_at', sa.DateTime(), nullable=False),
         sa.PrimaryKeyConstraint('user_id'),
