@@ -1,11 +1,14 @@
-
 from pydantic import BaseModel
+from typing import Optional, List
 
-from typing import Optional
+
+class CreateUserCarDetailResponse(BaseModel):
+    name: str
+    trim_id: int
 
 
 class CreateUserCarResponse(BaseModel):
-    user_car_list: list
+    user_car_list: Optional[List[CreateUserCarDetailResponse]]
 
     class Config:
         orm_mode = True
@@ -14,15 +17,17 @@ class CreateUserCarResponse(BaseModel):
                 "user_car_list": [
                     {
                         "name": "candycandy",
-                        "trimId": 5000,
+                        "trim_id": 5000,
                     },
                 ]
             }
         }
 
+
 class GetTireInfoResponse(BaseModel):
     front: str
     rear: str
+
 
 class GetUserCarResponse(BaseModel):
     id: str
@@ -34,7 +39,7 @@ class GetUserCarResponse(BaseModel):
         schema_extra = {
             "example":{
                 "id": "candycandy",
-                "trimId": "5000",
+                "trim_id": "5000",
                 "car_tire" : {
                     "front": "245/45R19",
                     "rear": "245/45R20",

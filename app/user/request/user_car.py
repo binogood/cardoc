@@ -1,11 +1,10 @@
 from pydantic import BaseModel
-
 from typing import Optional, List
 
 
 class CreateUserCarDetailRequest(BaseModel):
     name: str
-    trimId: int
+    trim_id: int
 
 
 class CreateUserCarRequest(BaseModel):
@@ -18,7 +17,7 @@ class CreateUserCarRequest(BaseModel):
                 "user_car_info": [
                     {
                         "name": "candycandy",
-                        "trimId": 5000,
+                        "trim_id": 5000,
                     },
                 ]
             }
@@ -33,7 +32,7 @@ class GetUserCarRequest(BaseModel):
         orm_mode = True
         schema_extra = {
             "example": {
-                "trimId": "5000",
+                "trim_id": "5000",
                 "name": "candycandy",
             }
         }
