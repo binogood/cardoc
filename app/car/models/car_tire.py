@@ -1,4 +1,3 @@
-
 from typing import Union, NoReturn
 
 from sqlalchemy import Column, Integer, ForeignKey
