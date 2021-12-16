@@ -1,15 +1,13 @@
-
-import jwt
 import bcrypt
 
-from typing import Optional, Union, NoReturn
+from typing import Union, NoReturn
 
 from pythondi import inject
 
-from core.config import config
 from app.user.models.user import User
 from app.user.repository.user import UserRepo
 from core.db.transaction import Transaction, Propagation
+from core.utiles.token_helper import TokenHelper
 from core.exceptions.user import (
     UserNotFoundException,
     DuplicateNameException,
@@ -22,17 +20,17 @@ class UserService:
         self.user_repo = user_repo
 
     @Transaction(propagation=Propagation.REQUIRED)
-    async def create_user(self, name: str, password: str) -> Union[User, NoReturn]:
-        if await self.user_repo.get_by_user(name=name):
+    async def create_user(self, name: str, password: str, is_admin: bool) -> Union[User, NoReturn]:
+        if await self.user_repo.get_by_name(name=name):
             raise DuplicateNameException
 
-        user = User().create(name=name, password=password)
+        user = User().create(name=name, password=password, is_admin=is_admin)
         user = await self.user_repo.save(user=user)
         return user
 
     @Transaction(propagation=Propagation.REQUIRED)
-    async def login_user(self, name: str, password: str) -> Optional[User]:
-        user = await self.user_repo.get_by_user(name=name)
+    async def login_user(self, name: str, password: str) -> str:
+        user = await self.user_repo.get_by_name(name=name)
         if not user:
             raise UserNotFoundException
 
@@ -42,9 +40,7 @@ class UserService:
         ):
             raise UserNotFoundException
 
-        access_token = jwt.encode(
-            {'user': user.user_id}, config.JWT_SECRET_KEY, algorithm=config.JWT_ALGORITHM
-        )
+        access_token = TokenHelper.create_token({'user': user.user_id})
         return access_token
 
     async def _check_password(self, password1: str, password2: str) -> bool:
