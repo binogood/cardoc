@@ -1,12 +1,13 @@
 from abc import ABC, abstractmethod
 from typing import List
 
-from fastapi import Request
+from fastapi import Request, HTTPException
 from fastapi.openapi.models import APIKey, APIKeyIn
 from fastapi.security.base import SecurityBase
 
-from app.user.service.user import UserService
 from core.exceptions.base import CustomException, UnauthorizedException
+
+from app.user.service.user import UserService
 
 
 class PermissionDependency(SecurityBase):
@@ -45,4 +46,4 @@ class IsAdmin(BasePermission):
         if not user_id:
             return False
 
-        return await user_id
+        return await UserService().is_admin(user_id=user_id)
