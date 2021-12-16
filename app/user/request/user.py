@@ -4,10 +4,17 @@ from pydantic import BaseModel
 class CreateUserRequest(BaseModel):
     name: str
     password: str
+    is_admin: bool
 
     class Config:
         orm_mode = True
-        schema_extra = {"example": {"name": "candycandy", "password": "11223344", }}
+        schema_extra = {
+            "example": {
+                "name": "candycandy",
+                "password": "11223344",
+                "is_admin": 0,
+            }
+        }
 
 
 class LoginUserRequest(BaseModel):
@@ -16,4 +23,9 @@ class LoginUserRequest(BaseModel):
 
     class Config:
         orm_mode = True
-        schema_extra = {"example": {"name": "candycandy", "password": "11223344", }}
+        schema_extra = {
+            "example": {
+                "name": "candycandy",
+                "password": "11223344",
+            }
+        }
